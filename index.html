@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>URL Phishing Checker</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="app">
+        <header class="header">
+            <div class="brand">
+                <div class="logo" aria-hidden="true">🔒</div>
+                <h1 class="title">URL Phishing Checker</h1>
+            </div>
+            <button id="themeToggle" class="btn btn-ghost" aria-label="Toggle theme">🌓</button>
+        </header>
+
+        <main class="card">
+            <form id="checkForm" class="form" novalidate>
+                <label for="urlInput" class="label">Enter a URL to analyze</label>
+                <div class="input-row">
+                    <input id="urlInput" type="url" class="input" placeholder="https://example.com" autocomplete="off" required>
+                    <button type="submit" class="btn" id="analyzeBtn">Check</button>
+                </div>
+                <p class="hint">We'll analyze the URL and tell you if it looks suspicious.</p>
+            </form>
+
+            <section id="result" class="result hidden" aria-live="polite"></section>
+
+            <details class="help">
+                <summary>How this works</summary>
+                <p>This simple UI validates your URL and shows a mock prediction. Hook up the submit action to your backend later to run your trained model.</p>
+            </details>
+        </main>
+
+        <footer class="footer">
+            <span>Built for demo purposes</span>
+            <a href="#" id="resetLink" class="link">Reset</a>
+        </footer>
+    </div>
+
+    <script src="app.js"></script>
+    <script>
+        // Prefer user's OS theme by default
+        (function initTheme() {
+            const prefersDark = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches;
+            if (prefersDark) document.documentElement.dataset.theme = 'dark';
+        })();
+    </script>
+</body>
+</html>
+
+
